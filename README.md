@@ -1,0 +1,29 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# OSI Lübeck Talk
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+This is the github repository of the presentation for the Open Science
+Initative in Lübeck. The presentation is hosted as the index.qmd file.
+
+The presentation is available here: <https://osiluebeck23.netlify.app/>
+
+## Reproducibility
+
+The presentation was rendered using quarto v.1.2.207. Please use this
+version to ensure reproducibility.
+
+After cloning this repository, it makes sense to download the same
+libraries used in this project by restoring the r environment. The
+following command restores the libraries used to create the talk.
+
+    renv::restore()
+
+## Recommended IDE
+
+The project was created using RStudio (from Posit) version 2022.12.0+353
+(2022.12.0+353). It can be generated from the command line using the
+quarto CLI.
