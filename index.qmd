@@ -9,6 +9,9 @@ citation:
   url: https://example.com/summarizing-output
 bibliography: references.bib
 format: 
+  html:
+    table-of-contents: true
+    embed-resources: true
   pptx: 
     footer: "Open Science Initiative Lübeck - Feb 23rd 2023"
     reference-doc: template_imis.pptx
@@ -21,8 +24,7 @@ format:
     footer: "Open Science Initiative Lübeck - Feb 23rd 2023"
     code-link: true
     code-fold: true
-  beamer:
-    footer: "Beamer Version"  
+    preview-links: auto
   pdf:
     lang: en
 ---
@@ -258,46 +260,114 @@ This presentation was created in Quarto.
 . . .
 
 It is available live:
- - as a website: https://osiluebeck23.netlify.app/
- - as source code: 
 
-## Bullets
+ - as a website: [https://osiluebeck23.netlify.app/](https://osiluebeck23.netlify.app/)
+ - as source code: [https://github.com/Sumidu/osi-luebeck-talk](https://github.com/Sumidu/osi-luebeck-talk)
 
-When you click the **Render** button a document will be generated that includes:
 
--   Content authored with markdown
--   Output from executable code
+## How does it work?
 
-## Code
+Quarto files are markdownfiles that include executable code blocks.
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+Under the hood `Pandoc` renders the output files.
+It uses a YAML header for additional rendering information.
 
-```{r}
+## Single source, multiple output files
+
+Quarto renders:
+
+- Latex (Beamer, article)
+- Epub
+- Office Files (pptx, doc)
+- HTML Websites
+- Journal articles
+- your own templates
+- many more, see [here](https://quarto.org/docs/output-formats/all-formats.html){preview-link="true"}
+
+
+## Viewing Code
+
+When you **render** a quarto document, an output file will be generated that includes both content and the output of embedded code. 
+
+You can embed code like this:
+
+```r
+# This is a simple addition
 1 + 1
+# This calculates a mean
+mean(c(1, 2, 4, 5, 123))
+
 ```
 
-# Quarto
 
-## Quarto has column support
+## Running code
 
-:::: {.columns}
+Obviously you can also execute the code inside of a quarto document.
 
-::: {.column width="40%"}
-contents...
-:::
-
-::: {.column width="60%"}
-contents...
-:::
-
-::::
-
-
-## Showing code
 
 ```{r}
-1+2
+#| echo: true
+
+# This is a simple addition
+1 + 1
+# This calculates a mean
+mean(c(1, 2, 4, 5, 123))
 ```
+
+
+## Interactive Visualizations
+
+You can add interactivity using observable javascript. 
+
+```{ojs}
+data = FileAttachment("palmer-penguins.csv").csv({ typed: true })
+```
+
+
+```{ojs}
+//| panel: sidebar
+viewof bill_length_min = Inputs.range(
+  [32, 50], 
+  {value: 35, step: 1, label: "Bill length (min):"}
+)
+viewof islands = Inputs.checkbox(
+  ["Torgersen", "Biscoe", "Dream"], 
+  { value: ["Torgersen", "Biscoe"], 
+    label: "Islands:"
+  }
+)
+```
+
+```{ojs}
+filtered = data.filter(function(penguin) {
+  return bill_length_min < penguin.bill_length_mm &&
+         islands.includes(penguin.island);
+})
+```
+
+```{ojs}
+Plot.rectY(filtered, 
+  Plot.binX(
+    {y: "count"}, 
+    {x: "body_mass_g", fill: "species", thresholds: 20}
+  ))
+  .plot({
+    facet: {
+      data: filtered,
+      x: "sex",
+      y: "species",
+      marginRight: 80
+    },
+    marks: [
+      Plot.frame(),
+    ]
+  }
+)
+```
+
+
+
+
 
 ## Speaker notes
 
@@ -307,7 +377,7 @@ Press `s` to enter presentation mode.
 Speaker notes go here. And you can save online.
 :::
 
-## More on Quarto
+## More on Quarto with revealjs
 
 https://quarto.org/docs/presentations/revealjs/demo/ 
 
