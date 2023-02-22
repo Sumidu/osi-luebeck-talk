@@ -272,17 +272,7 @@ Quarto files are markdownfiles that include executable code blocks.
 Under the hood `Pandoc` renders the output files.
 It uses a YAML header for additional rendering information.
 
-## Single source, multiple output files
 
-Quarto renders:
-
-- Latex (Beamer, article)
-- Epub
-- Office Files (pptx, doc)
-- HTML Websites
-- Journal articles
-- your own templates
-- many more, see [here](https://quarto.org/docs/output-formats/all-formats.html){preview-link="true"}
 
 
 ## Viewing Code
@@ -313,6 +303,24 @@ Obviously you can also execute the code inside of a quarto document.
 # This calculates a mean
 mean(c(1, 2, 4, 5, 123))
 ```
+
+
+## Single source, multiple output files
+
+Quarto renders:
+
+- Latex (Beamer, article)
+- Epub
+- Office Files (pptx, doc)
+- HTML Websites
+- Journal articles
+- your own templates
+- many more, see [here](https://quarto.org/docs/output-formats/all-formats.html){preview-link="true"}
+
+## Reusable document fragments
+
+![](figures/fragments.png)
+
 
 
 ## Interactive Visualizations
@@ -364,6 +372,15 @@ Plot.rectY(filtered,
   }
 )
 ```
+
+
+
+
+
+## Summary
+
+![](figures/openscience.png){.absolute left=200 top=75 height="615" width="700"}
+
 
 
 
