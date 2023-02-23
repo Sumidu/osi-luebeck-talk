@@ -25,6 +25,7 @@ format:
     code-link: true
     code-fold: true
     preview-links: auto
+    slide-tone: true
   pdf:
     lang: en
 ---
