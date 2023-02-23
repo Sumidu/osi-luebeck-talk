@@ -29,6 +29,16 @@ format:
     lang: en
 ---
 
+## Follow along at home?
+```{r}
+qr <- qrcode::qr_code("https://osiluebeck23.netlify.app/", ecl = "M")
+#qr <- qrcode::add_logo(qr,"logo.png")
+plot(qr)
+```
+
+
+[https://osiluebeck23.netlify.app/](https://osiluebeck23.netlify.app/)
+
 
 # 75% of all published research is behind a paywall.
 
@@ -226,10 +236,10 @@ Easier **for you** to follow up.
 Is it though?
 
 
-## Classical Scientific Approach
+## Classic Scientific Approach
 ![](figures/oldscience.png){.absolute left=0 top=75 height="500" width="610"}
 
-## Classical "open" Scientific Approach
+## Classic "open" Scientific Approach
 
 ![](figures/oldscience2.png){.absolute left=0 top=75 height="615" width="983"}
 
@@ -242,6 +252,39 @@ Is it though?
 
 
 
+## Accountability
+
+![Open Researcher ID](images/orcid.png){width=80%}
+
+
+## Open Science Framework
+
+![](images/osf_start.png)
+
+## Open Science Framework
+
+![](images/osf_login.png)
+
+
+## Open Science Framework
+
+![](images/osf_home.png)
+
+
+---
+
+## {background-video="images/osf_setupproject.mov" background-size="contain"}
+
+
+## Benefits of using OSF
+
+- 50 years of funding
+- easy way to collaborate
+- possibility to sharing ressources blinded for reviews
+- easy to use API, short ressource-URLs
+- free DOI for every ressource
+
+This project is available [here](https://osf.io/5gvmh/).
 
 
 # Literate Programming 
@@ -302,6 +345,34 @@ Obviously you can also execute the code inside of a quarto document.
 1 + 1
 # This calculates a mean
 mean(c(1, 2, 4, 5, 123))
+```
+
+
+## Example plots
+
+@fig-airquality further explores the impact of temperature on ozone level.
+
+```{r}
+#| echo: true
+#| label: fig-airquality
+#| fig-cap: Temperature and ozone level.
+#| warning: false
+
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess")
+```
+
+
+## Programmatically access OSF
+<!-- do to SPAM flagging this is deactivated, once restored it can be executed again -->
+
+```r
+#| echo: true
+osfr::osf_retrieve_file("https://osf.io/5gvmh/") %>%
+  osfr::osf_download()
 ```
 
 
@@ -374,6 +445,17 @@ Plot.rectY(filtered,
 ```
 
 
+## Writing Scientific Articles
+Support for multiple Journal templates:
+
+- ACM 
+- PLOS
+- ASA 
+- Elsevier
+- Biophysical, ACS, JSS, etc.
+
+#### References
+Quarto supports bibtex references [@calero2020making].
 
 
 
@@ -384,53 +466,35 @@ Plot.rectY(filtered,
 
 
 
+# More information on Quartos Revealjs Export
 
 
-## Speaker notes
+## Controlling Revealjs
 
 Press `s` to enter presentation mode.
+
+Press `ESC` to enter overview mode.
+
+Press `m` to enter menu mode.
+
 
 ::: {.notes}
 Speaker notes go here. And you can save online.
 :::
 
+
+
 ## More on Quarto with revealjs
 
-https://quarto.org/docs/presentations/revealjs/demo/ 
+[https://quarto.org/docs/presentations/revealjs/demo/](https://quarto.org/docs/presentations/revealjs/demo/) 
 
 ::: {.callout-tip}
-## Tip With Caption
+## Reveal js supports callouts!
 
 This is an example of a callout with a caption.
 :::
 
-## References
 
-Citation [@calero2020making]
-
-
-## Air Quality
-
-@fig-airquality further explores the impact of temperature on ozone level.
-
-```{r}
-#| label: fig-airquality
-#| fig-cap: Temperature and ozone level.
-#| warning: false
-
-library(ggplot2)
-
-ggplot(airquality, aes(Temp, Ozone)) + 
-  geom_point() + 
-  geom_smooth(method = "loess")
-```
-
-  
----
-
-![Orcid](images/orcid.png){width=80%}
-
-## {background-video="images/osf_setupproject.mov" background-size="contain"}
 
 
 ## References
