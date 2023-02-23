@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.1.2",
+    "Version": "4.2.1",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -41,6 +41,14 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "45f0398006e83a5b10b72a90663d8d8c",
+      "Requirements": []
+    },
+    "assertthat": {
+      "Package": "assertthat",
+      "Version": "0.2.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "50c838a310445e954bc13f26f26a6ecf",
       "Requirements": []
     },
     "base64enc": {
@@ -363,6 +371,16 @@
       "Repository": "CRAN",
       "Hash": "01f28d4278f15c76cddbea05899c5d6f",
       "Requirements": []
+    },
+    "qrcode": {
+      "Package": "qrcode",
+      "Version": "0.2.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "f1192030a93de676c3f6d9bfa447e7cc",
+      "Requirements": [
+        "assertthat"
+      ]
     },
     "rappdirs": {
       "Package": "rappdirs",
